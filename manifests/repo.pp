@@ -81,12 +81,14 @@ define yum::repo (
 
   # URL of gpgkey used in template and takes a form such as
   # http://yum.domain.tld/keys/RPM-GPG-KEY-CUSTOMREPO-5
+
+  # Check that gpgkey and use_gpgkey_uri aren't both set?
   if $gpgkey == 'UNSET' {
     if $use_gpgkey_uri == true {
       $my_gpgkey = "${gpgkey_url_proto}://${gpgkey_url_server_real}/${gpgkey_url_path}/${gpgkey_file_prefix}-${upcase_name}-${::lsbmajdistrelease}"
-    } else {
-      $my_gpgkey = $gpgkey
     }
+  } else {
+    $my_gpgkey = $gpgkey
   }
 
   # repo file

@@ -14,5 +14,5 @@ mirrorlist=<%= @mirrorlist %>
 <% if @failovermethod != nil -%>
 failovermethod=<%= @failovermethod %>
 <% end -%>
-<% if @use_gpgkey_uri == true %>gpgkey=<%= @my_gpgkey %><% end %>
+<% if @my_gpgkey != nil %>gpgkey=<%= @my_gpgkey %><% end %>
 <% if @priority != 'UNSET' %>priority=<%= @priority %><% end %>
